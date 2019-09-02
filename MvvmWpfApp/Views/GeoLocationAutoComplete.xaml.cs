@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QuickType;
 using Toolkit.WPF.Controls.ConsoleControl;
+using MvvmWpfApp.Models;
 
 namespace MvvmWpfApp.Controls
 {
@@ -25,7 +26,7 @@ namespace MvvmWpfApp.Controls
     {
 
         public static readonly DependencyProperty SelectedLocationProperty = DependencyProperty.Register(
-            "SelectedLocation", typeof(Result), typeof(GeoLocationAutoComplete), new PropertyMetadata(default(Result)));
+            "SelectedLocation", typeof(Prediction), typeof(GeoLocationAutoComplete), new PropertyMetadata(default(Prediction)));
 
         public event SelectionChangedEventHandler SelectedChanged
         {
@@ -33,9 +34,9 @@ namespace MvvmWpfApp.Controls
             remove { CompleteBox.SelectionChanged += value; }
         }
 
-        public Result SelectedLocation
+        public Prediction SelectedLocation
         {
-            get { return (Result)GetValue(SelectedLocationProperty); }
+            get { return (Prediction)GetValue(SelectedLocationProperty); }
             set { SetValue(SelectedLocationProperty, value); }
         }
  
@@ -54,14 +55,14 @@ namespace MvvmWpfApp.Controls
             DataContext = CompleteVM;
         }
 
-        private void AutoCompleteBox_OnTextChanged(object sender, RoutedEventArgs e)
+        private async void AutoCompleteBox_OnTextChanged(object sender, RoutedEventArgs e)
         {
-            CompleteVM.AutoComp(sender as AutoCompleteBox);
+            await CompleteVM.AutoComp(sender as AutoCompleteBox);
         }
 
         private void CompleteBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedLocation = (Result)(sender as AutoCompleteBox)?.SelectedItem;
+            SelectedLocation = (Prediction)(sender as AutoCompleteBox)?.SelectedItem;
         }
     }
 }

@@ -4,9 +4,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MvvmWpfApp.Views"
-    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:BE="clr-namespace:BE;assembly=BE"
-     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:Controls="clr-namespace:MvvmWpfApp.Controls"
     xmlns:viewModels="clr-namespace:MvvmWpfApp.ViewModels"
@@ -14,8 +13,7 @@
     xmlns:quickType="clr-namespace:QuickType"
     x:Class="MvvmWpfApp.Views.NewReportFormView"
     mc:Ignorable="d"
-    Background="Transparent"
-  
+    Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{DynamicResource MaterialDesignFont}"
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     TextElement.FontWeight="Medium"
@@ -25,7 +23,7 @@
         <quickType:ResultConverter x:Key="ResultConverter" />
     </UserControl.Resources>
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight}">
-        <Grid Margin="10" HorizontalAlignment="Left"
+        <materialDesign:Card Margin="10" HorizontalAlignment="Left"
                              d:DataContext="{d:DesignInstance Type=viewModels:NewReportFormVM}">
             <StackPanel Orientation="Vertical">
                 <Grid Margin="10" x:Name="Grid1" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -75,45 +73,19 @@
                                          Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="1" />
                 </Grid>
                 <Separator />
-                <Grid Margin="3" Height="40" x:Name="ActionsPanel">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="40"/>
-                    </Grid.ColumnDefinitions>
-                    <Button  Grid.Column="1" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" x:Name="SaveButton"
-                        DockPanel.Dock="Right">
-                      
-                                <iconPacks:PackIconModern Width="25"
-                                      Height="25"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      Kind="Save"/>
-  
-                    </Button>
-                    <Button Grid.Column="2" Command="{Binding ResetForm}" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" 
-                              x:Name="resetButton"
-                        DockPanel.Dock="Right">
-
-                        <iconPacks:PackIconModern Width="25"
-                                      Height="25"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      Kind="Cancel"/>
-
-                    </Button>
-                    <!--<Controls:ActionButton
+                <DockPanel Margin="3" x:Name="ActionsPanel">
+                    <Controls:ActionButton
                         x:Name="SaveButton"
                         DockPanel.Dock="Right"
                         Text="SAVE"
                         State="origin"
                         Icon="ContentSave"
-                        Style="{StaticResource MaterialDesignRaisedButton}" />-->
-                    <!--<Controls:ActionButton
+                        Style="{StaticResource MaterialDesignRaisedButton}" />
+                    <Controls:ActionButton
                         DockPanel.Dock="Right" HorizontalAlignment="Right" ButtonClick="ResetForm"
-                        Text="CANCEL" State="flat" Icon="Cancel" Style="{StaticResource MaterialDesignFlatButton}" />-->
-                </Grid>
+                        Text="CANCEL" State="flat" Icon="Cancel" Style="{StaticResource MaterialDesignFlatButton}" />
+                </DockPanel>
             </StackPanel>
-        </Grid>
+        </materialDesign:Card>
     </materialDesign:TransitioningContent>
 </UserControl>

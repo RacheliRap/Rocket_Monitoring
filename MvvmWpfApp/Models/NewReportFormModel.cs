@@ -14,15 +14,30 @@ namespace MvvmWpfApp.Models
 {
     public class NewReportFormModel
     {
-        private readonly IBl _bl = new FactoryBl().GetInstance();
+        private readonly IBl _bl;
+        public Report Report { get; set; }
 
-        public Report Report { get; set; } = new Report();
+        public NewReportFormModel()
+        {
+            _bl = new FactoryBl().GetInstance();
+
+            Report = new Report
+            {
+                Name = "SHIR",
+                Id = 1234,
+                Address = "Beit Hadfus 5, Jerusalem",
+                Latitude = 101.1,
+                Longitude = 12.34
+            };
+            AddReport();
+
+        }
 
         public async void AddReport()
         {
             var res = await _bl.AddReport(Report);
-            var message = res != null ? 
-                $"The Report: {res.Id}\nFrom: {res.Name}\nOn: {res.Time} Saved Successfully!" : 
+            var message = res != null ?
+                $"The Report: {res.Id}\nFrom: {res.Name}\nOn: {res.Time} Saved Successfully!" :
                 "Something went wrong when trying to add report!";
             MessageBox.Show(message);
         }

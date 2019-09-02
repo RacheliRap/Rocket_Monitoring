@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Racheli\Documents\final\windows-system-project-mvvm-master\MvvmWpfApp\App.xaml
-9-1450198049
+12956574792
 
-32952705075
-95204371392
-Controls\ActionButton.xaml;Views\GeoLocationAutoComplete.xaml;Views\ChooseExplosionsView.xaml;Views\GraphView.xaml;Views\MapView.xaml;Views\About.xaml;Views\MainWindow.xaml;Views\NewReportFormView.xaml;Views\picturesList.xaml;
+40575730862
+95-617631845
+Controls\ActionButton.xaml;Views\GeoLocationAutoComplete.xaml;Views\ChooseExplosionsView.xaml;Views\GraphView.xaml;Views\main.xaml;Views\MapView.xaml;Views\About.xaml;Views\MainWindow.xaml;Views\NewReportFormView.xaml;Views\picturesList.xaml;Views\UserControlCreate.xaml;Views\UserControlHome.xaml;
 
 False
 

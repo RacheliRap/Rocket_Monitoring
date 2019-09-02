@@ -17,7 +17,7 @@ namespace MvvmWpfApp
     public partial class App : Application
     {
         private static readonly ILog Log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private static MainWindow app;
+        private static main app;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -29,7 +29,7 @@ namespace MvvmWpfApp
 
             Log.Info("Starting App");
             LogMachineDetails();
-            app = new MainWindow();
+            app = new main();
             var context = new MainViewModel();
             app.DataContext = context;
             app.Show();

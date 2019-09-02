@@ -125,7 +125,7 @@ namespace BL
             Event _event = newReport.Event;
             var explotions = await _dal.GetExplosions(e => e.Event.Id == _event.Id);
 
-            //chsck if have real location
+            //check if have real location
             if (explotions.Count > 0 && explotions.All(e => e.RealLatitude > 0))
                 return;
 

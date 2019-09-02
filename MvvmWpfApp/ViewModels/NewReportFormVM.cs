@@ -58,7 +58,7 @@ namespace MvvmWpfApp.ViewModels
         private Report reportModel;
         public Report Report
         {
-            get{ return reportModel; }
+            get { return reportModel; }
             set
             {
                 OnPropertyChanged();

@@ -79,7 +79,7 @@ namespace MvvmWpfApp.Views
         private void SaveEnableCheck(object sender, RoutedEventArgs routedEventArgs)
         {
             int _;
-            SaveButton.IsEnabled = AddressTextBox.SelectedLocation != null &&
+            SaveButton.IsEnabled = //AddressTextBox.SelectedLocation != null &&
                                    NameTextBox.Text != "" &&
                                    !(NoiseIntensityTextBox.Text == "0" ||
                                    !int.TryParse(NoiseIntensityTextBox.Text, out _)) &&
@@ -90,9 +90,9 @@ namespace MvvmWpfApp.Views
         private void AddressTextBox_OnSelectedChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!(sender is AutoCompleteBox) || e.AddedItems.Count == 0) return;
-            (DataContext as NewReportFormVM).Report.Address = ((Result) e.AddedItems[0]).Title;
-            (DataContext as NewReportFormVM).Report.Latitude = ((Result) e.AddedItems[0])?.Position?[0]??0;
-            (DataContext as NewReportFormVM).Report.Longitude = ((Result) e.AddedItems[0])?.Position?[1]??0;
+            (DataContext as NewReportFormVM).Report.Address = ((Result)e.AddedItems[0]).Title;
+            (DataContext as NewReportFormVM).Report.Latitude = ((Result)e.AddedItems[0])?.Position?[0] ?? 0;
+            (DataContext as NewReportFormVM).Report.Longitude = ((Result)e.AddedItems[0])?.Position?[1] ?? 0;
         }
     }
 }
